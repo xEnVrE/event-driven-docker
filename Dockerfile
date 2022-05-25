@@ -10,7 +10,7 @@ ARG SOURCE_FOLDER=/usr/local/src
 RUN cd $SOURCE_FOLDER && \
     git clone https://github.com/robotology/event-driven.git &&\
     cd event-driven &&\
-    git checkout $vED_VERSION &&\
+    git checkout $ED_VERSION &&\
     mkdir build && cd build &&\
     cmake -DVLIB_DEPRECATED=ON -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. &&\
     make -j `nproc` install
