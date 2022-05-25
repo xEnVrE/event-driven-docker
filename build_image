@@ -1,0 +1,1 @@
+docker build --build-arg YARP_IMAGE=eventdrivenrobotics/yarp:bionic_v3.3.2 --build-arg ED_VERSION=ev2-dev --build-arg BUILD_TYPE=Release -t eventdrivenrobotics/event-driven:bionic_yarp_v3.3.2_ed_ev2-dev .
