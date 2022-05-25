@@ -14,7 +14,12 @@ RUN cd $SOURCE_FOLDER && \
     mkdir build && cd build &&\
     cmake -DVLIB_DEPRECATED=ON -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. &&\
     make -j `nproc` install
-RUN apt-get install -y \
+# Fix old Kitware keys
+RUN apt-key del 6AF7F09730B3F0A4 \
+    && wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null \
+    && echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ bionic main' | tee /etc/apt/sources.list.d/kitware.list >/dev/null
+RUN apt-get update \
+    && apt-get install -y \
     libboost-all-dev \
     && apt-get autoremove \
     && apt-get clean \
