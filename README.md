@@ -14,6 +14,8 @@ Please refer to the [documentation](http://robotology.github.io/event-driven/dox
 
 ## Build the image
 
+**Disclaimer: This is a temporary branch supporting a Docker image composed by `Ubuntu 18.04`, `YARP 3.3.2` and the `event-driven` repository with branch `ev2-dev`.**
+
 ```console
 bash build_image
 ```
